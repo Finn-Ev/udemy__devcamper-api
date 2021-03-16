@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ESNext",
     "module": "commonjs",
     "rootDir": "src",
     "outDir": "dist",
@@ -8,14 +8,10 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "lib": ["es6", "dom"],
-    "esModuleInterop": true
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/models/Review.js",
-    "src/models/User.js",
-    "src/models/Course.js",
-    "src/models/Bootcamp.ts"
-  ],
+  "include": ["src/**/*.ts", "src/models/Review.js", "src/models/User.js", "src/models/Course.js", "src/seeder.ts"],
   "exclude": ["node_modules"]
 }

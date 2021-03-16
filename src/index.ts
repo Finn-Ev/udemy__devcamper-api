@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import colors from 'colors';
+import errorHandler from './middleware/errorHandler';
 import { connectDB } from './config/db';
 
 // Route files
@@ -16,6 +17,7 @@ connectDB();
 // enable colors in console
 colors.enable();
 
+// init express
 const app: Application = express();
 
 // Body parser
@@ -26,6 +28,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/v1/bootcamps', bootcampRoutes);
+
+// add errorHandler middleware
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
